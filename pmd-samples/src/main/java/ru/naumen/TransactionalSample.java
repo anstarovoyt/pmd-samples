@@ -1,7 +1,7 @@
 package ru.naumen;
 
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+
 
 /**
  * @author astarovoyt
@@ -10,12 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 public class TransactionalSample
 {
-    @Transactional
-    public void doInTransaction()
-    {
-        new Exception().printStackTrace();
-    }
-
     /**
      * PMD should find error
      */
@@ -27,5 +21,11 @@ public class TransactionalSample
             {
             }
         }
+    }
+
+    @org.springframework.transaction.annotation.Transactional
+    protected void doInTransaction()
+    {
+        new Exception().printStackTrace();
     }
 }

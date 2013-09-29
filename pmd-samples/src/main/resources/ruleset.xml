@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="Custom ruleset" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+
+    <description>
+    Custom rule set for PMD
+    </description>
+
+    <exclude-pattern>.*/test/.*</exclude-pattern>
+
+    <rule ref="rulesets/java/strings.xml">
+        <!-- Assumed if the length of the constructor can not be determined -->
+        <exclude name="InsufficientStringBufferDeclaration" />
+        <exclude name="AvoidStringBufferField" />
+        <!-- Next excludes to avoid duplication -->
+        <exclude name="AvoidDuplicateLiterals" />
+        <exclude name="ConsecutiveLiteralAppends" />
+    </rule>
+    <rule ref="rulesets/java/strings.xml/AvoidDuplicateLiterals">
+        <properties>
+            <!-- Properties cause too many warnings in formatting HTML files -->
+            <property name="maxDuplicateLiterals" value="16" />
+            <property name="skipAnnotations" value="true" />
+        </properties>
+    </rule>
+    <rule ref="rulesets/java/strings.xml/ConsecutiveLiteralAppends">
+        <properties>
+            <!-- Exclude ADL cause too many warnings in formatting HTML files -->
+            <property name="threshold" value="3" />
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/java/imports.xml">
+        <exclude name="TooManyStaticImports" />
+    </rule>
+    <rule ref="rulesets/java/imports.xml/TooManyStaticImports">
+        <properties>
+            <property name="maximumStaticImports" value="16" />
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/java/design.xml/AvoidDeeplyNestedIfStmts">
+        <properties>
+            <property name="problemDepth" value="4"></property>
+        </properties>
+    </rule>
+
+    <rule ref="rulesets/java/unnecessary.xml">
+        <exclude name="UselessParentheses" />
+    </rule>
+
+    <rule ref="rulesets/java/design.xml/AvoidSynchronizedAtMethodLevel" />
+    <rule ref="rulesets/java/design.xml/CloseResource" />
+    <rule ref="rulesets/java/design.xml/FinalFieldCouldBeStatic" />
+    <rule ref="rulesets/java/design.xml/NonStaticInitializer" />
+    <rule ref="rulesets/java/design.xml/OptimizableToArrayCall" />
+    <rule ref="rulesets/java/design.xml/PositionLiteralsFirstInComparisons" />
+    <rule ref="rulesets/java/design.xml/SimplifyBooleanExpressions" />
+    <rule ref="rulesets/java/design.xml/SimplifyConditional" />
+    <rule ref="rulesets/java/design.xml/SingularField" />
+    <rule ref="rulesets/java/design.xml/SwitchDensity" />
+    <rule ref="rulesets/java/design.xml/UseCollectionIsEmpty" />
+
+    <rule ref="rulesets/java/empty.xml" />
+    <rule ref="rulesets/java/finalizers.xml" />
+    <rule ref="rulesets/java/migrating.xml" />
+    <rule ref="rulesets/java/basic.xml" />
+    <rule ref="rulesets/java/braces.xml" />
+    <rule ref="rulesets/java/junit.xml" />
+
+    <rule ref="rulesets/java/unusedcode.xml" />
+
+    <rule 
+        name="SpringTransactionalOnlyPublic" 
+        message="@Transactional method must be public" 
+        language="java"
+        class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>
+            Don't use @Transactional with non-public methods
+    </description>
+        <properties>
+            <property name="xpath">
+                <value>
+        <![CDATA[
+//ClassOrInterfaceBodyDeclaration[MethodDeclaration[@Private='true' or @Protected='true']]
+[count(Annotation/MarkerAnnotation/Name[@Image='Transactional' or @Image='org.springframework.transaction.annotation.Transactional'])=1]
+        ]]>
+        </value>
+            </property>
+        </properties>
+        <example>
+        <![CDATA[
+        @Transactional
+        private void doInTransaction()
+        {
+        }
+        ]]>
+    </example>
+    </rule>
+</ruleset>

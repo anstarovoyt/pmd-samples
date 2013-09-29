@@ -40,7 +40,11 @@
             <artifactId>spring-context</artifactId>
             <version>3.2.4.RELEASE</version>
         </dependency>
-
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>jta</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
 
     <reporting>
@@ -53,6 +57,9 @@
                     <sourceEncoding>ISO-8859-1</sourceEncoding>
                     <minimumTokens>30</minimumTokens>
                     <targetJdk>1.7</targetJdk>
+                    <rulesets>
+                        <ruleset>/src/main/resources/ruleset.xml</ruleset>
+                    </rulesets>
                 </configuration>
             </plugin>
         </plugins>
