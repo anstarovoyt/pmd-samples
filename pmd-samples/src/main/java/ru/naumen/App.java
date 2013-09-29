@@ -18,6 +18,7 @@ public class App
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(App.class);
 
         TransactionalSample sample = context.getBean(TransactionalSample.class);
+
         sample.doInTransaction();
     }
 }
