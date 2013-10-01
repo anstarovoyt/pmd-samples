@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
  *
  */
 @Component
-@Deprecated
 public class TransactionalSample
 {
     @Transactional
