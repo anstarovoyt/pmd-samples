@@ -82,8 +82,8 @@
             <property name="xpath">
                 <value>
         <![CDATA[
-//ClassOrInterfaceBodyDeclaration[MethodDeclaration[@Private='true' or @Protected='true']]
-[count(Annotation/MarkerAnnotation/Name[@Image='Transactional' or @Image='org.springframework.transaction.annotation.Transactional'])=1]
+//ClassOrInterfaceBodyDeclaration/MethodDeclaration[(@Private='true' or @Protected='true') and
+count(../Annotation/MarkerAnnotation/Name[@Image='Transactional' or @Image='org.springframework.transaction.annotation.Transactional'])=1]
         ]]>
         </value>
             </property>
@@ -91,7 +91,7 @@
         <example>
         <![CDATA[
         @Transactional
-        private void doInTransaction()
+        private void doInTransaction() //method must be "public"
         {
         }
         ]]>
