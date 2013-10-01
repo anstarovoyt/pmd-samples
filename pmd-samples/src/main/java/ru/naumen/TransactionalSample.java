@@ -14,6 +14,16 @@ import org.springframework.transaction.annotation.Transactional;
 @Deprecated
 public class TransactionalSample
 {
+    @Transactional
+    public void doInMarkerTransactionWithPublic()
+    {
+    }
+
+    @Transactional(readOnly = true)
+    public void doInNormalTransactionWithPublic()
+    {
+    }
+
     /**
      * PMD should find error
      */
@@ -29,17 +39,26 @@ public class TransactionalSample
     }
 
     @Transactional
+    @PreDestroy
     protected void doInMarkerTransaction()
     {
     }
 
+    @PreDestroy
     @Transactional(readOnly = true)
     protected void doInNormalTransaction()
     {
     }
 
+
     @Transactional(readOnly = true, propagation = Propagation.MANDATORY)
     protected void doInNormalTransactionWithTwoParams()
+    {
+    }
+
+    @Transactional
+    @PreDestroy
+    private void doInMarkerTransactionPrivate()
     {
     }
 }

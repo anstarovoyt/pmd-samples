@@ -79,8 +79,7 @@
             <property name="xpath">
                 <value>
         <![CDATA[
-//ClassOrInterfaceBodyDeclaration/MethodDeclaration[
-(@Private='true' or @Protected='true') and
+//ClassOrInterfaceBodyDeclaration/MethodDeclaration[@Private='true' or @Protected='true'][
 (count(../Annotation/NormalAnnotation/Name[pmd-java:typeof(@Image, 'org.springframework.transaction.annotation.Transactional', 'Transactional')])=1)
 or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.springframework.transaction.annotation.Transactional', 'Transactional')])=1)
 ]
