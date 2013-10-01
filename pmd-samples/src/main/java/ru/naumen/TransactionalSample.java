@@ -1,18 +1,23 @@
 package ru.naumen;
 
-import org.springframework.stereotype.Component;
+import javax.annotation.PreDestroy;
 
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author astarovoyt
  *
  */
 @Component
+@Deprecated
 public class TransactionalSample
 {
     /**
      * PMD should find error
      */
+    @PreDestroy
     public void foo()
     {
         for (int i = 0; i < 10; i++)
@@ -23,9 +28,18 @@ public class TransactionalSample
         }
     }
 
-    @org.springframework.transaction.annotation.Transactional
-    protected void doInTransaction()
+    @Transactional
+    protected void doInMarkerTransaction()
     {
-        new Exception().printStackTrace();
+    }
+
+    @Transactional(readOnly = true)
+    protected void doInNormalTransaction()
+    {
+    }
+
+    @Transactional(readOnly = true, propagation = Propagation.MANDATORY)
+    protected void doInNormalTransactionWithTwoParams()
+    {
     }
 }

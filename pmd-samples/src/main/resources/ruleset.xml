@@ -70,10 +70,7 @@
 
     <rule ref="rulesets/java/unusedcode.xml" />
 
-    <rule 
-        name="SpringTransactionalOnlyPublic" 
-        message="@Transactional method must be public" 
-        language="java"
+    <rule name="SpringTransactionalOnlyPublic" message="@Transactional method must be public" language="java"
         class="net.sourceforge.pmd.lang.rule.XPathRule">
         <description>
             Don't use @Transactional with non-public methods
@@ -82,8 +79,11 @@
             <property name="xpath">
                 <value>
         <![CDATA[
-//ClassOrInterfaceBodyDeclaration/MethodDeclaration[(@Private='true' or @Protected='true') and
-count(../Annotation/MarkerAnnotation/Name[@Image='Transactional' or @Image='org.springframework.transaction.annotation.Transactional'])=1]
+//ClassOrInterfaceBodyDeclaration/MethodDeclaration[
+(@Private='true' or @Protected='true') and
+(count(../Annotation/NormalAnnotation/Name[pmd-java:typeof(@Image, 'org.springframework.transaction.annotation.Transactional', 'Transactional')])=1)
+or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.springframework.transaction.annotation.Transactional', 'Transactional')])=1)
+]
         ]]>
         </value>
             </property>
