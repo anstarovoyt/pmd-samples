@@ -103,15 +103,14 @@ or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.sprin
     </rule>
 
 
-    <rule class="net.sourceforge.pmd.lang.rule.XPathRule" language="java">
+    <rule name="ImportGwtDev" class="net.sourceforge.pmd.lang.rule.XPathRule" message="You should not use gwt-dev" language="java">
         <properties>
             <property name="xpath">
                 <value>
 <![CDATA[
 //ImportDeclaration/Name[
 contains(@Image,'com.google.gwt.thirdparty.guava.common.collect.Lists')
-]
-]]>
+]]]>
             </value>
             </property>
         </properties>
