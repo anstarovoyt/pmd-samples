@@ -101,4 +101,19 @@ or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.sprin
         ]]>
     </example>
     </rule>
+
+
+    <rule class="net.sourceforge.pmd.lang.rule.XPathRule" language="java">
+        <properties>
+            <property name="xpath">
+                <value>
+<![CDATA[
+//ImportDeclaration/Name[
+contains(@Image,'com.google.gwt.thirdparty.guava.common.collect.Lists')
+]
+]]>
+            </value>
+            </property>
+        </properties>
+    </rule>
 </ruleset>
