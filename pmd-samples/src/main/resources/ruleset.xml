@@ -136,7 +136,7 @@ count(..//PrimaryPrefix/Name[@Image[fn:matches(.,'^System.out')]]) = 0
                 <value>
 <![CDATA[
 //ImportDeclaration/Name[
-contains(@Image,'com.google.gwt.thirdparty.guava.common.collect.Lists')
+contains(@Image,'com.google.common.collect')
 ]]]>
             </value>
             </property>
