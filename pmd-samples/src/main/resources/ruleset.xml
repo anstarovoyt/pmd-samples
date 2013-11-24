@@ -103,6 +103,33 @@ or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.sprin
     </rule>
 
 
+
+    <rule name="CheckBeforeContainsClean" message="Where is clean?" language="java"
+          class="net.sourceforge.pmd.lang.rule.XPathRule">
+        <description>
+            Clean
+        </description>
+        <properties>
+            <property name="xpath">
+                <value>
+                    <![CDATA[
+//ClassOrInterfaceBodyDeclaration/MethodDeclaration[
+(count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.junit.BeforeClass', 'BeforeClass')])=1)
+and
+count(..//PrimaryPrefix/Name[@Image[fn:matches(.,'^System.out')]]) = 0
+]
+        ]]>
+                </value>
+            </property>
+        </properties>
+        <example>
+    TODO
+        </example>
+    </rule>
+
+
+
+
     <rule name="ImportGwtDev" class="net.sourceforge.pmd.lang.rule.XPathRule" message="You should not use gwt-dev" language="java">
         <properties>
             <property name="xpath">
