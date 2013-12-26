@@ -105,7 +105,7 @@ or (count(../Annotation/MarkerAnnotation/Name[pmd-java:typeof(@Image, 'org.sprin
 
 
     <rule name="CheckBeforeContainsClean" message="Where is clean?" language="java"
-          class="net.sourceforge.pmd.lang.rule.XPathRule">
+        class="net.sourceforge.pmd.lang.rule.XPathRule">
         <description>
             Clean
         </description>
@@ -130,7 +130,8 @@ count(..//PrimaryPrefix/Name[@Image[fn:matches(.,'^System.out')]]) = 0
 
 
 
-    <rule name="ImportGwtDev" class="net.sourceforge.pmd.lang.rule.XPathRule" message="You should not use gwt-dev" language="java">
+    <rule name="ImportGwtDev" class="net.sourceforge.pmd.lang.rule.XPathRule" message="You should not use gwt-dev"
+        language="java">
         <properties>
             <property name="xpath">
                 <value>
@@ -142,4 +143,29 @@ contains(@Image,'com.google.common.collect')
             </property>
         </properties>
     </rule>
+
+    <rule name="HttpServletResponseRedirectWithLiteral" class="net.sourceforge.pmd.lang.rule.XPathRule" message="No send redirect with literal"
+        language="java">
+        <properties>
+            <property name="xpath">
+                <value>
+                <![CDATA[//PrimaryExpression[PrimaryPrefix/Name[ends-with(@Image, 'sendRedirect')]][PrimarySuffix/Arguments/ArgumentList[count(Expression)=1]/Expression/PrimaryExpression/PrimaryPrefix/Literal]]]>
+            </value>
+            </property>
+        </properties>
+    </rule>
+
+    <rule name="HttpServletResponseRedirectWithConst" class="net.sourceforge.pmd.lang.rule.XPathRule" message="No send redirect with const"
+        language="java">
+        <properties>
+            <property name="xpath">
+                <value>
+                <![CDATA[//PrimaryExpression[PrimaryPrefix/Name[ends-with(@Image, 'sendRedirect')]]
+                [PrimarySuffix/Arguments/ArgumentList[count(Expression)=1]/Expression/PrimaryExpression/PrimaryPrefix/Name[upper-case(@Image)=@Image]]
+                ]]>
+            </value>
+            </property>
+        </properties>
+    </rule>
+
 </ruleset>

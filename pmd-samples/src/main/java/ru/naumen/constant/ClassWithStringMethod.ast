@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompilationUnit BeginColumn="1" BeginLine="1" EndColumn="2" EndLine="9" FindBoundary="false" Image="" SingleLine="false" declarationsAreInDefaultPackage="false">
+    <PackageDeclaration BeginColumn="1" BeginLine="1" EndColumn="27" EndLine="1" FindBoundary="false" Image="" PackageNameImage="ru.naumen.constant" SingleLine="true">
+        <Name BeginColumn="9" BeginLine="1" EndColumn="26" EndLine="1" FindBoundary="false" Image="ru.naumen.constant" SingleLine="true"/>
+    </PackageDeclaration>
+    <TypeDeclaration BeginColumn="1" BeginLine="3" EndColumn="1" EndLine="9" FindBoundary="false" Image="" SingleLine="false">
+        <ClassOrInterfaceDeclaration Abstract="false" BeginColumn="8" BeginLine="3" EndColumn="1" EndLine="9" Final="false" FindBoundary="false" Image="ClassWithStringMethod" Interface="false" Modifiers="1" Native="false" Nested="false" PackagePrivate="false" Private="false" Protected="false" Public="true" SingleLine="false" Static="false" Strictfp="false" Synchronized="false" Transient="false" Volatile="false">
+            <ClassOrInterfaceBody BeginColumn="36" BeginLine="3" EndColumn="1" EndLine="9" FindBoundary="false" Image="" SingleLine="false">
+                <ClassOrInterfaceBodyDeclaration AnonymousInnerClass="false" BeginColumn="9" BeginLine="5" EndColumn="9" EndLine="8" EnumChild="false" FindBoundary="false" Image="" SingleLine="false">
+                    <MethodDeclaration Abstract="false" BeginColumn="16" BeginLine="5" EndColumn="9" EndLine="8" Final="false" FindBoundary="false" Image="" InterfaceMember="false" MethodName="sendRedirect" Modifiers="1" Native="false" PackagePrivate="false" Private="false" Protected="false" Public="true" SingleLine="false" Static="false" Strictfp="false" Synchronized="false" SyntacticallyAbstract="false" SyntacticallyPublic="true" Transient="false" Void="true" Volatile="false">
+                        <ResultType BeginColumn="16" BeginLine="5" EndColumn="19" EndLine="5" FindBoundary="false" Image="" SingleLine="true" Void="true" returnsArray="false"/>
+                        <MethodDeclarator BeginColumn="21" BeginLine="5" EndColumn="42" EndLine="5" FindBoundary="false" Image="sendRedirect" ParameterCount="1" SingleLine="true">
+                            <FormalParameters BeginColumn="33" BeginLine="5" EndColumn="42" EndLine="5" FindBoundary="false" Image="" ParameterCount="1" SingleLine="true">
+                                <FormalParameter Abstract="false" Array="false" ArrayDepth="0" BeginColumn="34" BeginLine="5" EndColumn="41" EndLine="5" Final="false" FindBoundary="false" Image="" Modifiers="0" Native="false" PackagePrivate="true" Private="false" Protected="false" Public="false" SingleLine="true" Static="false" Strictfp="false" Synchronized="false" Transient="false" Varargs="false" Volatile="false">
+                                    <Type Array="false" ArrayDepth="0" BeginColumn="34" BeginLine="5" EndColumn="39" EndLine="5" FindBoundary="false" Image="" SingleLine="true" TypeImage="String">
+                                        <ReferenceType Array="false" ArrayDepth="0" BeginColumn="34" BeginLine="5" EndColumn="39" EndLine="5" FindBoundary="false" Image="" SingleLine="true">
+                                            <ClassOrInterfaceType BeginColumn="34" BeginLine="5" EndColumn="39" EndLine="5" FindBoundary="false" Image="String" SingleLine="true"/>
+                                        </ReferenceType>
+                                    </Type>
+                                    <VariableDeclaratorId Array="false" ArrayDepth="0" BeginColumn="41" BeginLine="5" EndColumn="41" EndLine="5" ExceptionBlockParameter="false" FindBoundary="false" Image="s" SingleLine="true"/>
+                                </FormalParameter>
+                            </FormalParameters>
+                        </MethodDeclarator>
+                        <Block BeginColumn="9" BeginLine="6" EndColumn="9" EndLine="8" FindBoundary="false" Image="" SingleLine="false" containsComment="false"/>
+                    </MethodDeclaration>
+                </ClassOrInterfaceBodyDeclaration>
+            </ClassOrInterfaceBody>
+        </ClassOrInterfaceDeclaration>
+    </TypeDeclaration>
+</CompilationUnit>
